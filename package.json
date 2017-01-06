@@ -1,0 +1,21 @@
+{
+  "name": "fe-boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate for frontend porject",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaulMoyaReyes/fe-boilerplate.git"
+  },
+  "author": "Raúl Moya Reyes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RaulMoyaReyes/fe-boilerplate/issues"
+  },
+  "homepage": "https://github.com/RaulMoyaReyes/fe-boilerplate#readme",
+  "devDependencies": {
+  }
+}
