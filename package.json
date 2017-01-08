@@ -4,7 +4,9 @@
   "description": "Boilerplate for frontend porject",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --colors",
+    "watch": "webpack --progress --colors --watch"
   },
   "repository": {
     "type": "git",
@@ -17,9 +19,9 @@
   },
   "homepage": "https://github.com/RaulMoyaReyes/fe-boilerplate#readme",
   "devDependencies": {
-    "babel-cli": "6.18.0",
     "babel-core": "6.21.0",
     "babel-loader": "6.2.10",
-    "babel-preset-latest": "6.16.0"
+    "babel-preset-latest": "6.16.0",
+    "webpack": "1.14.0"
   }
 }
