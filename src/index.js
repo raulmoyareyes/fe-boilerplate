@@ -1,6 +1,10 @@
+import hello from 'lib/Hello';
+import { world, imported } from 'lib/world/World';
+
 class Writer {
+
     constructor () {
-        this.text = 'Hello World!';
+        this.text = hello() + ' ' + world();
     }
 
     getText() {
