@@ -5,7 +5,7 @@ const path = require('path');
 const webpackStream = require('webpack-stream');
 
 const manifest = require('./package.json');
-const webpackStreamConfig = require('./webpackstream.config');
+const webpackStreamConfig = require('./webpack.config');
 
 // Load all of our Gulp plugins
 const $ = loadPlugins();

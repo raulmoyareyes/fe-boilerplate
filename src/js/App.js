@@ -11,7 +11,7 @@ function App() {
         shape.setLength(4);
         break;
       case 'Rectangle':
-        shape.setWidth(6);
+        shape.setWidth(3);
         shape.setHeight(6);
     }
 
