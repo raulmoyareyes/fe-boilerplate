@@ -1,7 +1,7 @@
 import Square from 'shapes/Square';
 import Rectangle from 'shapes/Rectangle';
 
-function App() {
+function render() {
   const shapes = [new Rectangle(), new Rectangle(), new Square()];
 
   shapes.forEach((shape) => {
@@ -20,4 +20,4 @@ function App() {
   });
 }
 
-export default App;
+render();

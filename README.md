@@ -9,9 +9,9 @@ Boilerplate for a Front End project based on [babel-boilerplate](https://github.
 
 ✓ Author in [ES2015](https://babeljs.io/docs/learn-es2015/) (including the unit tests)
 ✓ Export as ES5 & [UMD](https://github.com/umdjs/umd)
+✓ Latest CSS syntax in [NextCSS](http://cssnext.io/features/)
 
 Comming soon...
-- Latest CSS syntax in [NextCSS](http://cssnext.io/features/)
 - Jasmine and Karma test
 
 ### Basic Guide
@@ -23,11 +23,14 @@ Put your unit tests in `test/unit`. The `npm run test` command runs the tests.
 ### npm Scripts
 
 - `npm run start` - Start http-server on dist folder
+- `npm run clean` - Remove dist folder
 - `npm run watch` - Continuously run the build as you make changes to the source
-   and test files themselves
-- `npm run build` - Lint then build the library
-- `npm run lint` - Lint the source and unit tests
+   and test files themselves*
+- `npm run build` - Lint then build the library*
 - `npm run test` - Lint the library and tests, then run the unit tests
+- `npm run lint` - Lint the source and unit tests
+
+\* Set the environment with script:env (ex: `npm run build:prod`)
 
 ### PostCSS
 ... Plugins postcss-cssnext, autoprefixer, postcss-import
