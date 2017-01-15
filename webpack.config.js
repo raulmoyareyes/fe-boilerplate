@@ -1,13 +1,10 @@
-const path = require('path');
 const manifest = require('./package.json');
 
 const config = manifest.customConfig;
-const mainFile = manifest.main;
-const exportFileName = path.basename(mainFile, path.extname(mainFile));
 
 module.exports = {
     output: {
-        filename: `${exportFileName}.js`,
+        filename: `js/${config.entryFileName}`,
         libraryTarget: 'umd',
         library: config.mainVarName
     },

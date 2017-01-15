@@ -3,6 +3,10 @@ const loadPlugins = require('gulp-load-plugins');
 const del = require('del');
 const path = require('path');
 const webpackStream = require('webpack-stream');
+const postcss = require('gulp-postcss');
+const cssnext = require('postcss-cssnext');
+const cssnano = require('cssnano');
+const util = require('gulp-util');
 
 const manifest = require('./package.json');
 const webpackStreamConfig = require('./webpack.config');
@@ -14,15 +18,14 @@ const $ = loadPlugins();
 const config = manifest.customConfig;
 const mainFile = manifest.main;
 const destinationFolder = path.dirname(mainFile);
-const exportFileName = path.basename(mainFile, path.extname(mainFile));
 
-function cleanDist(done) {
-  del([destinationFolder]).then(() => done());
+function cleanDist() {
+  del([destinationFolder]);
 }
 
 function copyFiles() {
-  gulp.src('./src/index.html')
-    .pipe(gulp.dest('./dist'));
+  gulp.src('src/index.html')
+    .pipe(gulp.dest(destinationFolder));
 }
 
 // Lint a set of files
@@ -45,14 +48,21 @@ function lintGulpfile() {
   return lint('gulpfile.js');
 }
 
-function build() {
-  return gulp.src(path.join('src', config.entryFileName))
+function css() {
+  var processors = [
+    cssnext({browsers: ['last 4 version']}),
+    cssnano({autoprefixer: false})
+  ];
+  return gulp.src('src/**/*.css')
+    .pipe(postcss(processors))
+    .pipe(gulp.dest(destinationFolder));
+}
+
+function js() {
+  return gulp.src(path.join('src/js', config.entryFileName))
     .pipe(webpackStream(webpackStreamConfig))
     .pipe(gulp.dest(destinationFolder))
-    .pipe($.rename(`${exportFileName}.min.js`))
-    .pipe($.sourcemaps.init({loadMaps: true}))
-    .pipe($.uglify({mangle: false}))
-    .pipe($.sourcemaps.write('./'))
+    .pipe(util.env.env == 'prod' ? $.uglify({mangle: false}) : util.noop())
     .pipe(gulp.dest(destinationFolder));
 }
 
@@ -91,14 +101,19 @@ gulp.task('lint-gulpfile', lintGulpfile);
 // Lint everything
 gulp.task('lint', ['lint-src', 'lint-test', 'lint-gulpfile']);
 
-// Build two versions of the library
-gulp.task('compile', ['lint', 'clean'], build);
-gulp.task('build', ['compile'], copyFiles);
-
 // Lint and run our tests
 gulp.task('test', ['lint'], test);
+
+// Transpile CSS
+gulp.task('css', css);
+
+// Transpile JS
+gulp.task('js', js);
+
+// Build two versions of the library
+gulp.task('build', ['copy-files', 'css', 'js']);
 
 gulp.task('watch', watch);
 
 // An alias of test
-gulp.task('default', ['test']);
+gulp.task('default', ['build']);

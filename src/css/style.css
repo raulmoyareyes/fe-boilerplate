@@ -1,0 +1,17 @@
+:root {
+  --mainColor: red;
+
+  --danger-theme: {
+    color: #ffffff;
+    background-color: #000000;
+  };
+}
+
+html {
+  background: var(--mainColor);
+}
+
+body {
+  @apply --danger-theme;
+  text-align: center;
+}
