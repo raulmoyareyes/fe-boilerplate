@@ -50,7 +50,16 @@ function lintGulpfile() {
 
 function css() {
   var processors = [
-    cssnext({browsers: ['last 4 version']}),
+    cssnext({browsers: [
+      '> 1%',
+      'last 2 versions',
+      'firefox >= 4',
+      'safari 7',
+      'safari 8',
+      'IE 9',
+      'IE 10',
+      'IE 11'
+    ]}),
     cssnano({autoprefixer: false})
   ];
   return gulp.src('src/**/*.css')
@@ -63,7 +72,7 @@ function js() {
     .pipe(webpackStream(webpackStreamConfig))
     .pipe(gulp.dest(destinationFolder))
     .pipe(util.env.env == 'prod' ? $.uglify({mangle: false}) : util.noop())
-    .pipe(gulp.dest(destinationFolder));
+    .pipe(gulp.dest(`${destinationFolder}/js`));
 }
 
 function _registerBabel() {
@@ -72,15 +81,13 @@ function _registerBabel() {
 
 function test() {
   _registerBabel();
-  // return _mocha();
 }
 
 const watchFiles = ['src/**/*', 'test/**/*', 'package.json', '**/.eslintrc'];
 
 // Run the headless unit tests as you make changes.
 function watch() {
-  // gulp.watch(watchFiles, ['test']);
-  gulp.watch(watchFiles, ['build']);
+  gulp.watch(watchFiles, ['copy-files', 'css', 'js']);
 }
 
 // Remove the built files

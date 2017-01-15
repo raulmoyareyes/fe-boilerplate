@@ -4,9 +4,7 @@ const config = manifest.customConfig;
 
 module.exports = {
     output: {
-        filename: `js/${config.entryFileName}`,
-        libraryTarget: 'umd',
-        library: config.mainVarName
+        filename: config.entryFileName
     },
     externals: {},
     resolve: {

@@ -1,20 +1,17 @@
 {
   "name": "fe-boilerplate",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Front End Boilerplate",
   "main": "dist/index.html",
   "scripts": {
     "start": "http-server dist",
     "clean": "gulp clean",
-
     "watch": "gulp watch",
     "watch:dev": "gulp watch --env=dev",
     "watch:prod": "gulp watch --env=prod",
-
     "build": "gulp build",
     "build:dev": "gulp build --env=dev",
     "build:prod": "gulp build --env=prod",
-
     "test": "gulp test",
     "lint": "gulp lint"
   },
@@ -43,14 +40,12 @@
     "gulp-postcss": "6.2.0",
     "gulp-uglify": "2.0.0",
     "gulp-util": "3.0.8",
-    "json-loader": "0.5.4",
     "postcss": "5.2.10",
     "postcss-cssnext": "2.9.0",
     "webpack": "1.13.2",
     "webpack-stream": "3.2.0"
   },
   "customConfig": {
-    "entryFileName": "index.js",
-    "mainVarName": "index"
+    "entryFileName": "index.js"
   }
 }
