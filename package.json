@@ -1,31 +1,46 @@
 {
   "name": "fe-boilerplate",
-  "version": "0.0.1",
-  "description": "Boilerplate for frontend porject",
-  "main": "dist/index.html",
+  "version": "0.0.5",
+  "description": "Front End Boilerplate",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "cd dist && http-server",
-    "clean": "rm -rf dist && mkdir dist",
-    "assets": "cp index.html dist/index.html",
-    "build": "npm run clean && npm run assets && webpack --progress --colors",
-    "watch": "npm run clean && npm run assets && webpack --progress --colors --watch"
+    "test": "gulp",
+    "lint": "gulp lint",
+    "start": "http-server dist",
+    "watch": "gulp watch",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RaulMoyaReyes/fe-boilerplate.git"
+    "url": "git+https://github.com/raulmoyareyes/fe-boilerplate.git"
   },
-  "author": "Raúl Moya Reyes",
+  "keywords": [],
+  "author": "Raul Moya Reyes <raulmoyareyes@hotmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RaulMoyaReyes/fe-boilerplate/issues"
+    "url": "https://github.com/raulmoyareyes/fe-boilerplate/issues"
   },
-  "homepage": "https://github.com/RaulMoyaReyes/fe-boilerplate#readme",
+  "homepage": "https://github.com/raulmoyareyes/fe-boilerplate",
   "devDependencies": {
-    "babel-core": "6.21.0",
-    "babel-loader": "6.2.10",
-    "babel-preset-latest": "6.16.0",
-    "babel-preset-stage-0": "6.16.0",
-    "webpack": "1.14.0"
+    "babel-core": "6.14.0",
+    "babel-loader": "6.2.5",
+    "babel-polyfill": "6.13.0",
+    "babel-preset-latest": "6.14.0",
+    "babel-register": "6.14.0",
+    "del": "2.2.2",
+    "gulp": "3.9.1",
+    "gulp-eslint": "3.0.1",
+    "gulp-filter": "4.0.0",
+    "gulp-load-plugins": "1.2.4",
+    "gulp-rename": "1.2.2",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-uglify": "2.0.0",
+    "json-loader": "0.5.4",
+    "webpack": "1.13.2",
+    "webpack-stream": "3.2.0"
+  },
+  "customConfig": {
+    "entryFileName": "index.js",
+    "mainVarName": "feBoilerplate"
   }
 }
