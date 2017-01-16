@@ -70,7 +70,6 @@ function css() {
 function js() {
   return gulp.src(path.join('src/js', config.entryFileName))
     .pipe(webpackStream(webpackStreamConfig))
-    .pipe(gulp.dest(destinationFolder))
     .pipe(util.env.env == 'prod' ? $.uglify({mangle: false}) : util.noop())
     .pipe(gulp.dest(`${destinationFolder}/js`));
 }
