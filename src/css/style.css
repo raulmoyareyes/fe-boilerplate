@@ -1,9 +1,9 @@
 :root {
-  --mainColor: red;
+  --mainColor: #AAAAAA;
 
   --danger-theme: {
     color: #ffffff;
-    background-color: #000000;
+    background-color: #333333;
   };
 }
 

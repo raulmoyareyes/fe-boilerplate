@@ -13,7 +13,7 @@ Boilerplate for a Front End project based on [babel-boilerplate](https://github.
 ✓ Export and import as ES5  
 ✓ Latest CSS syntax in [NextCSS](http://cssnext.io/features/)  
 ✗ Jasmine and Karma test  
-✗ Server and watch [livereload](https://github.com/vohof/gulp-livereload)  
+✓ Server and watch [livereload](https://github.com/AveVlad/gulp-connect)  
 
 ### Basic Guide
 
@@ -23,7 +23,7 @@ Put your unit tests in `test/unit`. The `npm run test` command runs the tests.
 
 ### NPM Scripts
 
-- `npm run start` - Start http-server on dist folder
+- `npm run start` - Start server on dist folder
 - `npm run clean` - Remove dist folder
 - `npm run watch` - Continuously run the build as you make changes to the source
    and test files themselves*
@@ -42,6 +42,9 @@ Put your unit tests in `test/unit`. The `npm run test` command runs the tests.
 ### Test
 ... Jasmine, karma, karma-cli, karma-jasmine, karma-chrome-launcher, 
 karma-firefox-launcher, karma-phantomjs-launcher, phantomjs-prebuilt
+
+### Server
+... Gulp connect on port 8080
 
 ### Linting
 

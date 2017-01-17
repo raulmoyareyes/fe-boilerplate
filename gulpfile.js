@@ -64,15 +64,16 @@ function css() {
   ];
   return gulp.src('src/**/*.css')
     .pipe(postcss(processors))
-    .pipe(gulp.dest(destinationFolder));
+    .pipe(gulp.dest(destinationFolder))
+    .pipe($.connect.reload());
 }
 
 function js() {
   return gulp.src(path.join('src/js', config.entryFileName))
     .pipe(webpackStream(webpackStreamConfig))
-    .pipe(gulp.dest(destinationFolder))
     .pipe(util.env.env == 'prod' ? $.uglify({mangle: false}) : util.noop())
-    .pipe(gulp.dest(`${destinationFolder}/js`));
+    .pipe(gulp.dest(`${destinationFolder}/js`))
+    .pipe($.connect.reload());
 }
 
 function _registerBabel() {
@@ -81,6 +82,14 @@ function _registerBabel() {
 
 function test() {
   _registerBabel();
+}
+
+function serve () {
+  $.connect.server({
+    root: destinationFolder,
+    port: 8080,
+    livereload: true
+  });
 }
 
 const watchFiles = ['src/**/*', 'test/**/*', 'package.json', '**/.eslintrc'];
@@ -117,10 +126,13 @@ gulp.task('css', css);
 // Transpile JS
 gulp.task('js', js);
 
+// Serve with livereload
+gulp.task('serve', serve);
+
 // Build two versions of the library
 gulp.task('build', ['copy-files', 'css', 'js']);
 
-gulp.task('watch', watch);
+gulp.task('watch', ['build', 'serve'], watch);
 
-// An alias of test
-gulp.task('default', ['build']);
+// An alias of build
+gulp.task('default', ['watch']);
