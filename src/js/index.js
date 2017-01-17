@@ -8,11 +8,11 @@ function render() {
 
     switch (shape.constructor.name) {
       case 'Square':
-        shape.setLength(4);
+        shape.setLength(5);
         break;
       case 'Rectangle':
-        shape.setWidth(3);
-        shape.setHeight(6);
+        shape.setWidth(6);
+        shape.setHeight(3);
     }
 
     const area = shape.getArea();
