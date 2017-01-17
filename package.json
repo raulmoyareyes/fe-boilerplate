@@ -1,6 +1,6 @@
 {
   "name": "fe-boilerplate",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Front End Boilerplate",
   "main": "dist/index.html",
   "scripts": {
