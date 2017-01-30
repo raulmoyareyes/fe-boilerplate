@@ -6,7 +6,6 @@ const webpackStream = require('webpack-stream');
 const postcss = require('gulp-postcss');
 const cssnext = require('postcss-cssnext');
 const cssnano = require('cssnano');
-const util = require('gulp-util');
 
 const manifest = require('./package.json');
 const webpackStreamConfig = require('./webpack.config');
@@ -63,6 +62,7 @@ function css() {
     cssnano({autoprefixer: false})
   ];
   return gulp.src('src/**/*.css')
+    .pipe($.plumber())
     .pipe(postcss(processors))
     .pipe(gulp.dest(destinationFolder))
     .pipe($.connect.reload());
@@ -70,8 +70,9 @@ function css() {
 
 function js() {
   return gulp.src(path.join('src/js', config.entryFileName))
+    .pipe($.plumber())
     .pipe(webpackStream(webpackStreamConfig))
-    .pipe(util.env.env == 'prod' ? $.uglify({mangle: false}) : util.noop())
+    .pipe($.util.env.env == 'prod' ? $.uglify({mangle: false}) : $.util.noop())
     .pipe(gulp.dest(`${destinationFolder}/js`))
     .pipe($.connect.reload());
 }
