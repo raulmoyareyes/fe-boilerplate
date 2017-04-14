@@ -43,7 +43,7 @@
   "scripts": {
     "start": "",
     "clean": "rm -r ./dist",
-    "build": "webpack $B_PRO $B_WATCH --config config/webpack.config.js",
+    "build": "gulp html-minify --gulpfile config/gulpfile.js && webpack $B_PRO $B_WATCH --config config/webpack.config.js",
     "build:dev": "npm run build",
     "build:pro": "B_PRO=-p npm run build",
     "watch": "B_WATCH=-w npm run build",

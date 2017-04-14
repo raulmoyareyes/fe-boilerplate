@@ -1,9 +1,13 @@
-import ButtonExample from './components/button-example';
+import SearchForm from './components/search-form';
+import Button from './components/button';
 
 import './index.css';
 
 let rightNow = new Date();
 document.write(`<div>${rightNow}</div>`);
 
-let button = new ButtonExample(5);
-document.write(`<div>border: ${button.render()}</div>`);
+let searchForm = new SearchForm('Your text:');
+document.write(searchForm.render());
+
+let button = new Button('other button');
+document.write(button.render());
