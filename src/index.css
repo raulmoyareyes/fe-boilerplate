@@ -1,0 +1,9 @@
+:root {
+  --color-black: rgb(0,0,0);
+  --color-blue: #32c7ff;
+}
+
+body {
+    background:  var(--color-blue);
+    border-radius: 5px;
+}
