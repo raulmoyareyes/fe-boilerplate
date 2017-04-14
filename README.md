@@ -9,17 +9,17 @@ Boilerplate for a Front End project based on [babel-boilerplate](https://github.
 
 ### Features
 
-✓ Author in [ES2015](https://babeljs.io/docs/learn-es2015/) (including the unit tests)  
+✓ Author in [es2017, es2016, es2015](https://babeljs.io/docs/plugins/preset-env/) with polyfills IE 10 (including the unit tests)  
 ✓ Export and import as ES5  
 ✓ Latest CSS syntax in [NextCSS](http://cssnext.io/features/)  
-✗ Jasmine and Karma test  
-✓ Server and watch [livereload](https://github.com/AveVlad/gulp-connect)  
+✓ Jasmine and Karma test  
+✗ Server and watch [livereload](https://github.com/AveVlad/gulp-connect)  
 
 ### Basic Guide
 
 Write your code in `src`. Run `npm run build` to compile the source into a distributable format.
 
-Put your unit tests in `test/unit`. The `npm run test` command runs the tests.
+Put your unit tests in the same folder than your code with the `Spec` extension. The `npm run test` command runs the tests.
 
 ### NPM Scripts
 
@@ -29,19 +29,17 @@ Put your unit tests in `test/unit`. The `npm run test` command runs the tests.
    and test files themselves*
 - `npm run build` - Build the project*
 - `npm run test` - Lint the library and tests, then run the unit tests
-- `npm run lint` - Lint the source and unit tests
 
-\* Set the environment with script:env (ex: `npm run build:prod`)
+\* Set the environment with script:env (ex: `npm run build:pro`)
 
 ### Javascript
-... Babel, Webpack, ES2015
+... Babel, Webpack, es2017, es2016, es2015
 
 ### CSS
 ... Plugins postcss-cssnext, autoprefixer, postcss-import
  
 ### Test
-... Jasmine, karma, karma-cli, karma-jasmine, karma-chrome-launcher, 
-karma-firefox-launcher, karma-phantomjs-launcher, phantomjs-prebuilt
+... Jasmine, karma, karma-jasmine, karma-chrome-launcher, karma-phantomjs-launcher, phantomjs-prebuilt
 
 ### Server
 ... Gulp connect on port 8080
@@ -49,9 +47,4 @@ karma-firefox-launcher, karma-phantomjs-launcher, phantomjs-prebuilt
 ### Linting
 
 This boilerplate uses [ESLint](http://eslint.org/) to lint your source. To
-change the rules, edit the `.eslintrc` files in the root directory, respectively.
-
-Given that your unit tests typically follow different rules from your library
-code, it makes sense to lint them against a separate ESLint configuration. For
-this reason, a separate, unit-test specific `.eslintrc` can be found in the
-`test` directory.
+change the rules, edit the `eslint.config.json` files in the config directory.
