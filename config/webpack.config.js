@@ -98,6 +98,21 @@ module.exports = {
           // 'image-webpack-loader' // Compress images
         ]
       },
+      {
+        test: /\.(woff2?|svg)$/i,
+        use: ['url-loader?limit=10000&name=fonts/[name].[ext]']
+      },
+      {
+        test: /\.(ttf|eot)$/i,
+        use: ['file-loader?name=fonts/[name].[ext]']
+      }
+      // {
+      //   test: /\.(png|jpe?g|gif|svg|eot|ttf|woff2?)$/,
+      //   loader: 'url-loader',
+      //   options: {
+      //     limit: 10000
+      //   }
+      // }
     ]
   },
 
@@ -128,7 +143,7 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin({
-      filename: `[name].${config.outputFile}.[hash].css`, 
+      filename: `css/[name].${config.outputFile}.[hash].css`, 
       disable: !isProd, // HMR 
       allChunks: true 
     }),
