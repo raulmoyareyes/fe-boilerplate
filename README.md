@@ -30,7 +30,7 @@ Put your unit tests in the same folder than your code with the `Spec` extension.
 - `npm run build` - Build the project*
 - `npm run test` - Lint the library and tests, then run the unit tests
 
-\* Set the environment with script:env (ex: `npm run build:pro`)
+\* Set the environment with script:env (ex: `npm run build:prod`)
 
 ### Javascript
 ... Babel, Webpack, es2017, es2016, es2015
